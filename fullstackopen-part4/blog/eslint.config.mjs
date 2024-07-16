@@ -19,7 +19,7 @@ export default [
     rules: {
       '@stylistic/js/indent': [
         'error',
-        2
+        4
       ],
       '@stylistic/js/linebreak-style': [
         'error',

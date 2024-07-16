@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env  NODE_ENV=test node --test",
     "build:ui": "rm -rf dist && cd ../phonebook-frontend/ && npm run build && cp -r dist ../phonebook-backend",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
@@ -16,9 +16,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "expect": "^29.7.0",
     "express": "^4.19.2",
+    "express-async-errors": "^3.1.1",
+    "lodash": "^4.17.21",
     "mongoose": "^8.5.0",
     "morgan": "^1.10.0"
   },
@@ -26,8 +30,10 @@
     "@eslint/js": "^9.6.0",
     "@flydotio/dockerfile": "^0.5.7",
     "@stylistic/eslint-plugin-js": "^2.3.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9.6.0",
     "globals": "^15.8.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0"
   }
 }
